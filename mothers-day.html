@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ถึงแม่ของหนู 💙</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --rose:#c8536a;
+      --blush:#f2c4ce;
+      --cream:#fdf6f0;
+      --gold:#c9a96e;
+      --deep:#3b1f2b;
+      --soft:#7a4a5a;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Sarabun',sans-serif;
+      background:var(--cream);
+      color:var(--deep);
+      overflow-x:hidden;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:60px 24px;
+      position:relative;
+      overflow:hidden;
+
+      background:
+      radial-gradient(circle at top,#f8d7df 0%,transparent 45%),
+      radial-gradient(circle at bottom left,#ffe8d2 0%,transparent 40%),
+      var(--cream);
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:500px;
+      height:500px;
+      border:1px solid rgba(200,83,106,.15);
+      border-radius:50%;
+      top:-180px;
+      right:-180px;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:300px;
+      height:300px;
+      border:1px solid rgba(200,83,106,.12);
+      border-radius:50%;
+      bottom:-120px;
+      left:-100px;
+    }
+
+    .hero__eyebrow{
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:var(--rose);
+      font-size:.75rem;
+      margin-bottom:18px;
+      z-index:2;
+    }
+
+    .hero__title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(3rem,9vw,6rem);
+      line-height:1.1;
+      margin-bottom:24px;
+      z-index:2;
+    }
+
+    .hero__sub{
+      max-width:520px;
+      line-height:1.9;
+      color:var(--soft);
+      font-size:1.05rem;
+      z-index:2;
+    }
+
+    .hero__scroll{
+      margin-top:60px;
+      color:var(--gold);
+      font-size:.8rem;
+      letter-spacing:.15em;
+      z-index:2;
+    }
+
+    .arrow{
+      width:1px;
+      height:45px;
+      background:var(--gold);
+      margin:12px auto 0;
+      position:relative;
+    }
+
+    .arrow::after{
+      content:"";
+      position:absolute;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+      border:5px solid transparent;
+      border-top-color:var(--gold);
+    }
+
+    /* PETALS */
+
+    .petal{
+      position:absolute;
+      top:-50px;
+      border-radius:50% 0 50% 0;
+      opacity:.6;
+      animation:fall linear infinite;
+      z-index:1;
+    }
+
+    @keyframes fall{
+      0%{
+        transform:translateY(-60px) rotate(0deg);
+      }
+      100%{
+        transform:translateY(120vh) rotate(540deg);
+      }
+    }
+
+    /* SECTION */
+
+    .timeline-section{
+      max-width:1000px;
+      margin:auto;
+      padding:100px 24px;
+    }
+
+    .section-label{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      font-size:.75rem;
+      margin-bottom:10px;
+    }
+
+    .section-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2rem,5vw,3.5rem);
+      line-height:1.2;
+      margin-bottom:70px;
+    }
+
+    /* TIMELINE */
+
+    .timeline{
+      position:relative;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:0;
+      bottom:0;
+      width:1px;
+      background:var(--blush);
+      transform:translateX(-50%);
+    }
+
+    .tl-item{
+      display:grid;
+      grid-template-columns:1fr 60px 1fr;
+      gap:20px;
+      align-items:start;
+      margin-bottom:80px;
+    }
+
+    .tl-item:nth-child(odd) .tl-content{
+      text-align:right;
+    }
+
+    .tl-dot{
+      display:flex;
+      justify-content:center;
+      padding-top:10px;
+    }
+
+    .tl-dot__inner{
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background:var(--rose);
+      box-shadow:0 0 0 6px rgba(200,83,106,.15);
+    }
+
+    .tl-year{
+      color:var(--rose);
+      margin-bottom:8px;
+      font-size:.95rem;
+    }
+
+    .tl-heading{
+      font-family:'Playfair Display',serif;
+      font-size:1.4rem;
+      margin-bottom:12px;
+    }
+
+    .tl-text{
+      line-height:1.9;
+      color:var(--soft);
+    }
+
+    .tl-image{
+      border-radius:18px;
+      overflow:hidden;
+      aspect-ratio:4/3;
+      box-shadow:0 15px 40px rgba(0,0,0,.12);
+      transition:.4s;
+    }
+
+    .tl-image:hover{
+      transform:translateY(-5px);
+    }
+
+    .tl-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* LETTER */
+
+    .letter-section{
+      padding:100px 24px;
+
+      background:
+      radial-gradient(circle,#f8d7df 0%,transparent 60%),
+      var(--cream);
+    }
+
+    .letter-wrap{
+      max-width:700px;
+      margin:auto;
+      background:white;
+      padding:60px;
+      border-radius:8px;
+      box-shadow:0 20px 60px rgba(0,0,0,.08);
+      position:relative;
+    }
+
+    .letter-stamp{
+      position:absolute;
+      top:25px;
+      right:30px;
+      font-size:1.6rem;
+    }
+
+    .letter-dear{
+      font-family:'Playfair Display',serif;
+      font-size:1.4rem;
+      color:var(--rose);
+      margin-bottom:28px;
+    }
+
+    .letter-body{
+      line-height:2;
+      color:var(--deep);
+    }
+
+    .letter-body p{
+      margin-bottom:20px;
+    }
+
+    .letter-sig{
+      margin-top:40px;
+      color:var(--rose);
+      font-family:'Playfair Display',serif;
+      font-size:1.3rem;
+    }
+
+    /* QUOTE */
+
+    .quote-band{
+      background:var(--deep);
+      color:white;
+      text-align:center;
+      padding:90px 24px;
+    }
+
+    .quote-text{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.5rem,4vw,2.4rem);
+      line-height:1.7;
+      max-width:700px;
+      margin:auto;
+      font-style:italic;
+    }
+
+    .quote-attr{
+      margin-top:24px;
+      color:var(--gold);
+      letter-spacing:.18em;
+      font-size:.8rem;
+    }
+
+    /* FOOTER */
+
+    footer{
+      text-align:center;
+      padding:50px 24px;
+      color:var(--soft);
+      font-size:.9rem;
+    }
+
+    .heart{
+      color:var(--rose);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .timeline::before{
+        left:24px;
+      }
+
+      .tl-item{
+        grid-template-columns:50px 1fr;
+      }
+
+      .tl-dot{
+        grid-column:1;
+      }
+
+      .tl-content,
+      .tl-image{
+        grid-column:2;
+        text-align:left !important;
+      }
+
+      .tl-image{
+        margin-top:16px;
+      }
+
+      .letter-wrap{
+        padding:40px 28px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <!-- PETALS -->
+
+  <script>
+    const colors = ['#e88fa0','#f2c4ce','#c8536a','#f7a8b8','#d4748a'];
+
+    for(let i=0;i<20;i++){
+
+      const petal = document.createElement('div');
+
+      petal.classList.add('petal');
+
+      petal.style.left = Math.random()*100 + 'vw';
+      petal.style.width = 10 + Math.random()*12 + 'px';
+      petal.style.height = 14 + Math.random()*14 + 'px';
+      petal.style.background = colors[Math.floor(Math.random()*colors.length)];
+      petal.style.animationDuration = 6 + Math.random()*8 + 's';
+      petal.style.animationDelay = Math.random()*6 + 's';
+
+      document.querySelector('.hero').appendChild(petal);
+    }
+  </script>
+
+  <p class="hero__eyebrow">
+    2026/5/10 — วันแม่ญี่ปุ่น
+  </p>
+
+  <h1 class="hero__title">
+    ถึงจะไม่ได้พูดบ่อย<br>
+    แต่หนูรักแม่นะ
+  </h1>
+
+  <p class="hero__sub">
+    เว็บเล็ก ๆ ที่หนูตั้งใจทำให้แม่<br>
+    ขอบคุณที่อยู่ข้างหนูมาตลอด
+  </p>
+
+  <div class="hero__scroll">
+    เลื่อนดูความทรงจำ
+    <div class="arrow"></div>
+  </div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section class="timeline-section">
+
+  <p class="section-label">
+    ความทรงจำ
+  </p>
+
+  <h2 class="section-title">
+    เรื่องเล็ก ๆ<br>
+    ที่หนูจำได้เสมอ
+  </h2>
+
+  <div class="timeline">
+
+    <!-- 1 -->
+
+    <div class="tl-item">
+
+      <div class="tl-content">
+
+        <p class="tl-year">
+          ตอนเด็ก
+        </p>
+
+        <h3 class="tl-heading">
+          แม่คอยดูแลหนูตลอด
+        </h3>
+
+        <p class="tl-text">
+          รูปตอนเป็นเบบี้ หนูน่ารักจัง55555
+        </p>
+
+      </div>
+
+      <div class="tl-dot">
+        <div class="tl-dot__inner"></div>
+      </div>
+
+      <div class="tl-image">
+        <img src="images/mom1.jpg" alt="">
+      </div>
+
+    </div>
+
+    <!-- 2 -->
+
+    <div class="tl-item">
+
+      <div class="tl-image">
+        <img src="images/mom2.jpg" alt="">
+      </div>
+
+      <div class="tl-dot">
+        <div class="tl-dot__inner"></div>
+      </div>
+
+      <div class="tl-content">
+
+        <p class="tl-year">
+          โตขึ้นอีกนิด
+        </p>
+
+        <h3 class="tl-heading">
+          รับปริญญาเด็ก
+        </h3>
+
+        <p class="tl-text">
+         รับปริญญาครั้งแรกของชีวิตหนู
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- 3 -->
+
+    <div class="tl-item">
+
+      <div class="tl-content">
+
+        <p class="tl-year">
+          วันรับปริญญา
+        </p>
+
+        <h3 class="tl-heading">
+          เป็นความสำเร็จอีกขั้นของชีวิตหนู
+        </h3>
+
+        <p class="tl-text">
+          ไม่เคยถ่ายด้วยกันแต่โชคดีที่สมัยนี้มีเอไอ55555
+        </p>
+
+      </div>
+
+      <div class="tl-dot">
+        <div class="tl-dot__inner"></div>
+      </div>
+
+      <div class="tl-image">
+        <img src="images/mom3.jpg" alt="">
+      </div>
+
+    </div>
+
+    <!-- 4 -->
+
+    <div class="tl-item">
+
+      <div class="tl-image">
+        <img src="images/mom4.jpg" alt="">
+      </div>
+
+      <div class="tl-dot">
+        <div class="tl-dot__inner"></div>
+      </div>
+
+      <div class="tl-content">
+
+        <p class="tl-year">
+          วันนี้
+        </p>
+
+        <h3 class="tl-heading">
+          ขอบคุณที่เป็นแม่ของหนู
+        </h3>
+
+        <p class="tl-text">
+          ถึงหนูจะไม่ค่อยพูดอะไรซึ้ง ๆ
+          แต่หนูดีใจมากที่มีแม่อยู่ในชีวิต
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- LETTER -->
+
+<section class="letter-section">
+
+  <div style="text-align:center; margin-bottom:50px;">
+
+    <p class="section-label">
+      จากหนูถึงแม่
+    </p>
+
+    <h2 class="section-title">
+      มีบางอย่างที่อยากบอก
+    </h2>
+
+  </div>
+
+  <div class="letter-wrap">
+
+    <div class="letter-stamp">
+      💙
+    </div>
+
+    <p class="letter-dear">
+      ถึงแม่
+    </p>
+
+    <div class="letter-body">
+
+      <p>
+        จริง ๆ หนูไม่ค่อยกล้าพูดอะไรซึ้ง ๆ ต่อหน้าแม่
+        เลยลองเขียนไว้ในนี้แทน
+      </p>
+
+      <p>
+        ขอบคุณที่ดูแลหนูมาตลอดนะ
+        ทั้งตอนเด็ก ตอนดื้อ แล้วก็ตอนโต
+      </p>
+
+      <p>
+        ถึงบางทีหนูจะชอบเถียง
+        หรือทำให้แม่เป็นห่วง
+        แต่หนูรู้ว่าแม่หวังดีกับหนูเสมอ
+      </p>
+
+      <p>
+        ขอให้แม่สุขภาพแข็งแรง
+        แล้วก็อยู่กับหนูนาน ๆ นะ
+      </p>
+
+      <p>
+        หนูรักแม่นะ 💙
+      </p>
+
+    </div>
+
+    <p class="letter-sig">
+      — จากลิลลี่
+    </p>
+
+  </div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote-band">
+
+  <p class="quote-text">
+    "โตขึ้นถึงได้รู้ว่า<br>
+    คนที่เหนื่อยที่สุดมาตลอดคือแม่"
+  </p>
+
+  <p class="quote-attr">
+    — สุขสันต์วันแม่ —
+  </p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  ทำด้วย <span class="heart">♥</span> ให้แม่
+</footer>
+
+</body>
+</html>
